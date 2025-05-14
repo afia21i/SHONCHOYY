@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bank</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/mybank.css' %}">
+</head>
+<body class="mybank-page dotted-background">
+    <div class="mybank-container">
+        <h1 class="heading-text">My Account</h1>
+        <div class="home-button-container">
+            <a href="{% url 'currentstatus' %}" class="home-button navigate-button" data-url="{% url 'currentstatus' %}">
+                <img src="{% static 'images/status.svg' %}" alt="Current Status">
+                <span class="home-button-text">Current Status</span>
+            </a>
+            <a href="{% url 'transaction' %}" class="home-button navigate-button" data-url="{% url 'transaction' %}">
+                <img src="{% static 'images/transaction.svg' %}" alt="Transactions">
+                <span class="home-button-text">Transactions</span>
+            </a>
+            <a href="{% url 'myloans' %}" class="home-button navigate-button" data-url="{% url 'myloans' %}">
+                <img src="{% static 'images/myloans.svg' %}" alt="My Loans">
+                <span class="home-button-text">My Loans</span>
+            </a>
+        </div>
+        <div class="bottom-image-container">
+            <img src="{% static 'images/mybank1.svg' %}" alt="My Bank Illustration">
+        </div>
+    </div>
+    <script>
+        const navigateButtons = document.querySelectorAll('.navigate-button');
+        navigateButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const url = this.getAttribute('data-url');
+                window.location.href = url;
+            });
+        });
+    </script>
+</body>
+</html>

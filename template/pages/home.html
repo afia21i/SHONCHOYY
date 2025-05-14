@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Shonchoy</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body class="home dotted-background">
+    <div class="home-container">
+        <h1 class="home-welcome-message">Welcome Home!</h1>
+        <div class="home-button-container">
+            <button class="home-button navigate-button" data-url="{% url 'mybank' %}">
+                <img src="{% static 'images/bank.svg' %}" alt="My Bank">
+                <span class="home-button-text">My Bank</span>
+            </button>
+            <button class="home-button navigate-button" data-url="{% url 'loaninquiries' %}">
+                <img src="{% static 'images/loan.svg' %}" alt="Loans Inquiries">
+                <span class="home-button-text">Loans Inquiries</span>
+            </button>
+            <button class="home-button navigate-button" data-url="{% url 'notifications' %}">
+                <img src="{% static 'images/reminder.svg' %}" alt="Notifications">
+                <span class="home-button-text">Notifications</span>
+            </button>
+            <button class="home-button navigate-button" data-url="{% url 'chartlist' %}">
+                <img src="{% static 'images/list.svg' %}" alt="Chart List">
+                <span class="home-button-text">Chart List</span>
+            </button>
+            <button class="home-button navigate-button" data-url="{% url 'logout' %}">
+                <img src="{% static 'images/logout_home.svg' %}" alt="Log out">
+                <span class="home-button-text">Log out</span>
+            </button>
+        </div>
+
+        <img src="{% static 'images/home.svg' %}" alt="Home Illustration" class="home-illustration">
+    </div>
+
+    <script>
+        const navigateButtons = document.querySelectorAll('.navigate-button');
+        navigateButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const url = this.getAttribute('data-url');
+                window.location.href = url;
+            });
+        });
+    </script>
+</body>
+</html>

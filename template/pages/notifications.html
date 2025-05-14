@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notifications</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="notifications-container">
+        <h1 class="page-title">Notifications</h1>
+
+        <!-- Upcoming Deadlines -->
+        <div class="section">
+            <h2>📅 Upcoming Deadlines</h2>
+            {% if upcoming_deadlines %}
+                <ul class="notification-list">
+                    {% for notification in upcoming_deadlines %}
+                        <li class="notification-item">
+                            {{ notification.message }}
+                            <small>{{ notification.timestamp|date:"F j, Y, g:i a" }}</small>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="no-notification">No upcoming deadlines.</p>
+            {% endif %}
+        </div>
+
+        <!-- Transaction History -->
+        <div class="section">
+            <h2>💸 Transaction History</h2>
+            {% if transaction_history %}
+                <ul class="notification-list">
+                    {% for notification in transaction_history %}
+                        <li class="notification-item">
+                            {{ notification.message }}
+                            <small>{{ notification.timestamp|date:"F j, Y, g:i a" }}</small>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="no-notification">No transactions available.</p>
+            {% endif %}
+        </div>
+
+        <!-- Loan Alerts -->
+        <div class="section">
+            <h2>🚨 Loan Alerts</h2>
+            {% if loan_alerts %}
+                <ul class="notification-list">
+                    {% for notification in loan_alerts %}
+                        <li class="notification-item">
+                            {{ notification.message }}
+                            <small>{{ notification.timestamp|date:"F j, Y, g:i a" }}</small>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="no-notification">No loan alerts.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transactions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="transaction-page">
+
+<div class="transaction-container">
+    <h2 class="transaction-heading">Make a Transaction</h2>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="message {{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <form method="post" class="transaction-form">
+        {% csrf_token %}
+        <div class="input-group">
+            <label for="transaction_type">Transaction Type</label>
+            <select name="transaction_type" id="transaction_type" required>
+                <option value="">-- Select Type --</option>
+                <option value="DEPOSIT">Deposit</option>
+                <option value="CASH_OUT">Cash Out</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="amount">Amount</label>
+            <input type="number" name="amount" id="amount" step="0.01" min="0" required>
+        </div>
+
+        <button type="submit" class="transaction-button">Submit Transaction</button>
+    </form>
+</div>
+
+</body>
+</html>

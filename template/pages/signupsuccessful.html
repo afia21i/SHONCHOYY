@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Successful - Shonchoy</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/signupsuccessful.css' %}">
+</head>
+<body class="signup-page dotted-background">
+    <div class="successful-container">
+        <img src="{% static 'images/done.svg' %}" alt="Sign Up Successful" class="done-image">
+        <p class="success-message">Your sign up was successful</p>
+        <a href="{% url 'home' %}" class="continue-button">Continue to home</a>
+    </div>
+</body>
+</html>

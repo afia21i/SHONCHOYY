@@ -1,0 +1,1708 @@
+
+/* Webpage background */
+body.web-page {
+    
+    background: linear-gradient(180deg, #6F78CB 6%, #255492 58%, #235390 100%);
+    color: white;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Particles background */
+.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.particles::before, .particles::after {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(white 2px, transparent 2px);
+    background-size: 50px 50px;
+    animation: particlesMove 60s linear infinite;
+    opacity: 0.1;
+}
+
+.particles::after {
+    animation-delay: 30s;
+}
+
+@keyframes particlesMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-50%, -50%); }
+}
+
+/* Container - completely transparent with no box styling */
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: none !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* Logo and Punchline container */
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeInLogo 2s ease forwards;
+}
+
+/* Logo Image */
+.logo {
+    max-width: 250px;
+    height: auto;
+    opacity: 0;
+    animation: fadeInLogo 2s ease forwards;
+}
+
+/* Punchline */
+.punchline {
+    margin-top: 20px;
+    font-size: 1.8em;
+    font-weight: 400;
+    color: #ffffff;
+    text-align: center;
+    opacity: 0;
+    animation: fadeInPunchline 2s ease forwards;
+    animation-delay: 2s;
+}
+
+/* Next Page Button */
+.next-page-button {
+    position: absolute;
+    top: -40px;
+    right: -200px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1em;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+}
+
+.next-page-button:hover {
+    opacity: 1;
+}
+
+/* Animations */
+@keyframes fadeInLogo {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInPunchline {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
+/*homepage*/
+
+body.home-page {
+    font-family: Jost, sans-serif;
+    margin: 0;
+    background: linear-gradient(90deg, #6F78CB 6%, #255492 58%, #235390 100%);
+    color: #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 90%;
+    max-width: 1440px;
+    height: 80%;
+    max-height: 850px;
+    padding: 0 5%;
+    box-sizing: border-box;
+}
+
+.left-section {
+    width: 45%;
+    max-width: 696px;
+    aspect-ratio: 696 / 463;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-section img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.right-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45%;
+    max-width: 496px;
+}
+
+.text-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.text-section h1 {
+    font-size: 2.5vw;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 0.5vw;
+}
+
+.text-section p {
+    font-size: 1.5vw;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 0;
+}
+
+.buttons-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vw;
+    width: 100%;
+    max-width: 418px;
+}
+
+.button {
+    display: flex;
+    width: 100%;
+    height: auto;
+    padding: 1vw 2vw;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1.5vw;
+    background: radial-gradient(50% 50% at 50% 50%, #FFF 0%, #5D99ED 0.01%);
+    box-shadow: 0.5vw 0.1vw 0.1vw 0 rgba(0, 0, 0, 0.25);
+    border: none;
+    cursor: pointer;
+    color: #000;
+    font-family: Jost, sans-serif;
+    font-size: 1.2vw;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.button:hover {
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .left-section,
+    .right-section {
+        width: 100%;
+        text-align: center;
+    }
+
+    .text-section h1 {
+        font-size: 3vw;
+    }
+
+    .text-section p {
+        font-size: 2vw;
+    }
+
+    .buttons-section {
+        gap: 4vw;
+    }
+
+    .button {
+        font-size: 2.5vw;
+        padding: 3vw;
+    }
+}
+
+
+/* sign up page styles */
+body.signup-page {
+    font-family: sans-serif;
+    margin: 0;
+    background: linear-gradient(180deg, #6F78CB 0%, #255492 58%, #235390 100%);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden; /* Prevent scrolling */
+    font-size: 0.9em; /* Overall slightly smaller font size for zoom out */
+}
+
+.signup-container {
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 30px; /* Slightly reduced padding */
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 350px; /* Further reduced form width */
+    max-width: 80%;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.signup-container h2 {
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #fff;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #eee;
+    font-size: 0.9em;
+}
+
+.input-group input[type="text"],
+.input-group input[type="password"],
+.input-group input[type="tel"] {
+    width: calc(100% - 30px);
+    padding: 12px; /* Reduced input padding */
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 0.9em;
+    box-sizing: border-box;
+}
+
+.input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9em;
+}
+
+.signup-button {
+    background-color: #5D99ED;
+    color: white;
+    padding: 12px 25px; /* Reduced button padding */
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 25px;
+}
+
+.signup-button:hover {
+    background-color: #4A7FCF;
+}
+
+.illustration-container {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+}
+
+.illustration {
+    width: 250px; /* Increased image width */
+    height: auto;
+    max-height: 250px; /* Increased maximum height */
+    opacity: 0.7;
+}
+
+.back-button-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.back-button {
+    background: none;
+    border: 2px solid #eee;
+    color: #eee;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    text-decoration: none; /* If using an <a> tag */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #eee;
+    color: #333;
+}
+body {
+    font-family: Jost, sans-serif; /* Use Jost font, fallback to sans-serif */
+    margin: 0;
+    background: linear-gradient(180deg, #6F78CB 0%, #255492 58%, #235390 100%);
+    color: #FFF;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    min-height: 100vh; /* Ensure body takes at least the full viewport height */
+}
+
+.container {
+    display: flex;
+    flex-direction: row; /* Arrange items horizontally */
+    align-items: center; /* Center items vertically within the container */
+    justify-content: space-around; /* Distribute space between image and text/buttons */
+    width: 90%; /* Adjust width to be a percentage of the viewport */
+    max-width: 1440px; /* Maintain the maximum width from Figma */
+    height: 80%; /* Adjust height to be a percentage of the viewport */
+    max-height: 850px; /* Adjust maximum height to fit within most desktop screens */
+    padding: 0 5%; /* Adjust padding as a percentage */
+    box-sizing: border-box; /* Include padding in width and height */
+}
+
+.left-section {
+    width: 45%; /* Adjust width as a percentage */
+    max-width: 696px; /* Maintain maximum width from Figma */
+    aspect-ratio: 696 / 463;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-section img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.right-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center text and buttons horizontally */
+    width: 45%; /* Adjust width as a percentage */
+    max-width: 496px; /* Maintain maximum width from Figma */
+}
+
+.text-section {
+    text-align: center;
+    margin-bottom: 40px; /* Adjust spacing */
+}
+
+.text-section h1 {
+    font-size: 2.5vw; /* Adjust font size responsively */
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 0.5vw; /* Adjust spacing responsively */
+}
+
+.text-section p {
+    font-size: 2.5vw; /* Adjust font size responsively */
+    font-weight: 700;
+    line-height: normal;
+    margin-top: 0;
+}
+
+.buttons-section {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 1.5vw; /* Adjust spacing responsively */
+    width: 100%; /* Make buttons take full width of their container */
+    max-width: 418px; /* Maintain maximum width from Figma */
+}
+
+.button {
+    display: flex;
+    width: 100%; /* Make buttons take full width */
+    height: auto; /* Adjust height based on content and padding */
+    padding: 1vw 2vw; /* Adjust padding responsively */
+    justify-content: center;
+    align-items: center;
+    border-radius: 1.5vw; /* Adjust border-radius responsively */
+    background: radial-gradient(50% 50% at 50% 50%, #FFF 0%, #5D99ED 0.01%);
+    box-shadow: 0.5vw 0.1vw 0.1vw 0 rgba(0, 0, 0, 0.25); /* Adjust shadow responsively */
+    border: none;
+    cursor: pointer;
+    color: #000;
+    font-family: Jost, sans-serif;
+    font-size: 1.2vw; /* Adjust font size responsively */
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.button:hover {
+    opacity: 0.9;
+}
+
+/* sign up */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(180deg, #6F78CB 0%, #255492 58%, #235390 100%);
+    color: #fff;
+    font-family: sans-serif;
+    overflow: hidden; /* Prevent scrolling */
+    font-size: 0.9em; /* Overall slightly smaller font size for zoom out */
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-container {
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 30px; /* Slightly reduced padding */
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 350px; /* Further reduced form width */
+    max-width: 80%;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #fff;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #eee;
+    font-size: 0.9em;
+}
+
+.input-group input[type="text"],
+.input-group input[type="password"],
+.input-group input[type="tel"] {
+    width: calc(100% - 30px);
+    padding: 12px; /* Reduced input padding */
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 0.9em;
+    box-sizing: border-box;
+}
+
+.input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9em;
+}
+
+.signup-button {
+    background-color: #5D99ED;
+    color: white;
+    padding: 12px 25px; /* Reduced button padding */
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 25px;
+}
+
+.signup-button:hover {
+    background-color: #4A7FCF;
+}
+
+
+
+.back-button-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.back-button {
+    background: none;
+    border: 2px solid #eee;
+    color: #eee;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    text-decoration: none; /* If using an <a> tag */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #eee;
+    color: #333;
+}
+
+/* Optional: Add some subtle background dots */
+body.signup-page::before {
+    content: '' !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 2px, transparent 3px) !important;
+    background-size: 30px 30px !important;
+    pointer-events: none !important;
+    z-index: -1 !important;
+
+}
+
+/* log in*/
+
+body.login-page {
+    font-family: 'Jost', sans-serif;
+    margin: 0;
+    background: linear-gradient(180deg, #6F78CB 0%, #255492 58%, #235390 100%);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.login-container {
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    height:350px;
+    max-width: 80%;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #eee;
+}
+
+.input-group input[type="text"],
+.input-group input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    box-sizing: border-box;
+}
+
+.login-button {
+    background-color: #5D99ED;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+}
+
+.login-button:hover {
+    background-color: #4A7FCF;
+}
+
+
+
+
+.signup-link {
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
+.signup-link a {
+    color: #ddd;
+    text-decoration: underline;
+}
+
+body.dotted-background {
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 3px);
+    background-size: 20px 20px; /* Adjust the size of the dots and spacing */
+}
+
+/*signupsuccessful*/
+/* static/css/signupsuccessful.css */
+
+.signup-successful-page {
+    font-family: 'Jost', sans-serif;
+    margin: 0;
+    background: linear-gradient(180deg, #6F78CB 0%, #255492 58%, #235390 100%);
+    color: #fff;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Prevent scrollbars if content overflows slightly */
+}
+
+.successful-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px; /* Spacing between elements */
+    background-color: rgba(255, 255, 255, 0.1); /* Optional: Subtle background for the container */
+    padding: 40px;
+    border-radius: 15px; /* Optional: Rounded corners for the container */
+    text-align: center;
+}
+
+.done-image {
+    width: 350px; /* Adjust as needed to fit within the container */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 250px; /* Creates a circular shape if width/height are equal */
+    /* The top and left positioning are handled by flexbox centering on the page */
+    /* Remove fixed top and left for responsiveness */
+}
+
+.success-message {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.continue-button {
+    display: inline-block;
+    background-color: #5D99ED;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.continue-button:hover {
+    background-color: #4A7FCF;
+}
+/*home*/
+/* static/css/home.css */
+
+
+.home-page {
+    font-family: 'Jost', sans-serif;
+    margin: 0;
+    background: linear-gradient(180deg, #6F78CB 0%, #255492 58%, #235390 100%);
+    color: #fff;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the left */
+    width: 90%;
+    max-width: 1100px;
+    height: 80%;
+    max-height: 800px;
+    position: relative;
+    padding: 30px;
+}
+
+.home-welcome-message {
+    font-size: 2.2em;
+    font-weight: bold;
+    margin-top: 40px;
+    margin-left: 50px;
+    margin-bottom: 30px;
+}
+
+.home-button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-left: 50px;
+    margin-top: 50 px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.home-button {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    height: 70px;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    padding: 10px 15px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    text-align: left;
+    font-weight: 400;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.home-button:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+.home-button img {
+    width: 40px;
+    height: 40px;
+}
+
+.home-button-text {
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+.home-button.logout-button {
+    margin-top: 1px;
+}
+
+.home-illustration {
+    width: auto;
+    height: auto;
+    max-width: 550px;
+    max-height: 530px;
+    position: absolute;
+    bottom: 30px;
+    right: -15px;
+    opacity: 2;
+}
+/*mybank*/
+body.mybank-page {
+    font-family: 'Jost', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+    background-image: 
+      radial-gradient(circle, rgba(255, 255, 255, 0.1) 3px, transparent 5px),
+      linear-gradient(360deg, #6F78CB 0%, #255492 58%, #235390 100%);
+    background-size: 
+      5.56vw 5.56vw,
+      cover;
+    background-repeat: repeat;
+    background-attachment: fixed;
+}
+
+.mybank-container {
+display: flex;
+flex-direction: column;
+align-items: flex-end; /* Align items to the right */
+width: 90%;
+max-width: 1100px;
+height: 80%;
+max-height: 800px;
+position: relative;
+padding: 30px;
+
+}
+
+.heading-text {
+    
+        font-size: 2vw;
+        font-weight: 700;
+        text-align: right;
+        margin-right: 900px;
+        margin-bottom: 40px; 
+    
+}
+
+.home-button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vw;
+    width: 100%;
+    max-width: 418px;
+    margin-bottom: 2vw;
+}
+
+.home-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1vw;
+    width: 100%;
+    padding: 1vw;
+    border-radius: 1.5vw;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #FFF;
+    font-size: 1.2vw;
+    font-weight: 500;
+    text-decoration: none;
+    box-shadow: 0 0.5vw 0.1vw 0 rgba(0, 0, 0, 0.25);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.home-button:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: scale(1.05);
+}
+
+.home-button img {
+    height: auto;
+    width: auto;
+    max-width: 3vw;
+    max-height: 3vw;
+}
+
+.home-button-text {
+    white-space: nowrap;
+}
+
+.bottom-image-container {
+    margin-top: auto;
+    display: flex;
+    justify-content: flex-start; /* Change to flex-start to align left */
+    align-items: flex-start; /* Add align-items: center to vertically center content */
+    width: 80%;
+}
+
+.bottom-image-container img {
+    max-width: 100%;
+    height: 400px;
+    object-fit: contain;
+    position: absolute;
+    left:-100px;
+    bottom:-50px;
+}
+
+/* Loan Inquiries Page Styling */
+body.loaninquiries-page {
+    font-family: 'Jost', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+    background-image:
+        radial-gradient(circle, rgba(255, 255, 255, 0.1) 3px, transparent 5px),
+        linear-gradient(360deg, #6F78CB 0%, #255492 58%, #235390 100%);
+    background-size: 5.56vw 5.56vw, cover;
+    background-repeat: repeat;
+    background-attachment: fixed;
+}
+
+.loaninquiries-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 800px;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.loaninquiries-heading {
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.loaninquiries-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.loaninquiries-table th,
+.loaninquiries-table td {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+.loaninquiries-table th {
+    background-color: rgba(255, 255, 255, 0.15);
+    font-weight: bold;
+}
+
+.loaninquiries-table tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.loaninquiries-table tr:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.input-group select {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    box-sizing: border-box;
+}
+#installment-amount {
+    font-weight: bold;
+    color: #fff;
+    margin-top: 5px;
+}
+
+
+/* Message styling below button */
+.message {
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+    font-size: 0.95em;
+    text-align: center;
+    font-weight: 500;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Success message */
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+/* Error message */
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/*currentstatus*/
+body.current-status-page {
+    font-family: 'Jost', sans-serif;
+    margin: 0;
+    padding: 40px 20px;
+    color: #fff;
+    min-height: 100vh;
+    background-image:
+        radial-gradient(circle, rgba(255, 255, 255, 0.1) 3px, transparent 5px),
+        linear-gradient(360deg, #6F78CB 0%, #255492 58%, #235390 100%);
+    background-size: 5.56vw 5.56vw, cover;
+    background-repeat: repeat;
+    background-attachment: fixed;
+    overflow-y: auto; /* This makes the page scrollable */
+}
+
+/* currentstatus*/
+/* Body and page container */
+body.current-status-page {
+    font-family: 'Jost', sans-serif;
+    margin: 0;
+    padding: 40px 20px;
+    color: #fff;
+    min-height: 100vh;
+    background-image:
+        radial-gradient(circle, rgba(255, 255, 255, 0.1) 3px, transparent 5px),
+        linear-gradient(360deg, #6F78CB 0%, #255492 58%, #235390 100%);
+    background-size: 5.56vw 5.56vw, cover;
+    background-repeat: repeat;
+    background-attachment: fixed;
+}
+
+/* Container for the entire status content */
+.status-container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+    background-color: rgba(255, 255, 255, 0.1); /* Transparent background */
+    backdrop-filter: blur(12px); /* Blur effect for the background */
+    -webkit-backdrop-filter: blur(12px);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    max-height: 90vh;  /* Limit container height */
+    overflow-y: scroll;  /* Enable scrolling but hide the scrollbar */
+    scroll-behavior: smooth;  /* Smooth scrolling */
+}
+
+/* Hiding the scrollbar */
+.status-container::-webkit-scrollbar {
+    width: 0px;  /* Set width to 0 to hide the scrollbar */
+    height: 0px;  /* Hide horizontal scrollbar as well */
+}
+
+.status-container::-webkit-scrollbar-track {
+    background: transparent;  /* Transparent track */
+}
+
+.status-container::-webkit-scrollbar-thumb {
+    background: transparent;  /* Transparent thumb */
+}
+
+/* Title Styling */
+.status-container h1, 
+.status-container h2 {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+/* Layout of Balance and Transactions */
+.row-layout {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* Each section inside the row layout */
+.row-layout > section {
+    flex: 1 1 48%;
+    min-width: 300px;
+}
+
+/* Balance Section */
+.balance-section .amount {
+    font-size: 2.5em;
+    text-align: center;
+    color: #ADE792;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Table Styling */
+.status-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: rgba(255, 255, 255, 0.06); /* Slight transparent background */
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.status-table th, 
+.status-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.status-table th {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-weight: 600;
+}
+
+.status-table td {
+    color: #fff;
+}
+
+/* List of loans */
+.status-list {
+    list-style: none;
+    padding: 0;
+    color: #fff;
+}
+
+.status-list li {
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.05); /* Transparent background */
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* Notification Section */
+.notifications-section p {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.05); /* Slight transparent background */
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 1.1em;
+    color: #F9D949;
+}
+
+
+
+/* myloans page - positioning the "My Loans" header */
+
+
+body.myloans-page {
+    font-family: 'Jost', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    background-image:
+        radial-gradient(circle, rgba(255, 255, 255, 0.1) 3px, transparent 5px),
+        linear-gradient(180deg, #6F78CB 0%, #255492 58%, #235390 100%);
+    background-size: 5.56vw 5.56vw, cover;
+    background-repeat: repeat;
+    background-attachment: fixed;
+}
+
+/* Wrapper to center content */
+.main-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* Container for heading */
+.loans-container {
+    width: 90%;
+    max-width: 1000px;
+    padding-left: 20px;
+}
+
+/* Heading styling */
+.loans-container h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 0;
+    text-align: center;
+}
+
+/* Main container for table */
+.container {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    margin-top: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 1000px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+}
+
+/* Table styling */
+.loans-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.loans-table th,
+.loans-table td {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 12px;
+    text-align: center;
+    font-size: 0.95em;
+    color: #fff;
+}
+
+.loans-table th {
+    background-color: rgba(255, 255, 255, 0.15);
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.loans-table tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.loans-table tr:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.repay-form {
+    margin-top: 10px;
+    background-color: rgba(255, 255, 255, 0.08);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.repay-form input[type="number"] {
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    margin-right: 10px;
+    width: 120px;
+}
+
+.repay-form button {
+    padding: 8px 16px;
+    background-color: #34d399;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.repay-form button:hover {
+    background-color: #10b981;
+}
+
+.due-info {
+    margin-top: 5px;
+    color: #fff;
+    font-size: 0.9em;
+}
+
+/* transaction page - professional form styling */
+body.transaction-page {
+    font-family: 'Jost', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+    background-image:
+        radial-gradient(circle, rgba(255, 255, 255, 0.1) 3px, transparent 5px),
+        linear-gradient(360deg, #6F78CB 0%, #255492 58%, #235390 100%);
+    background-size: 5.56vw 5.56vw, cover;
+    background-repeat: repeat;
+    background-attachment: fixed;
+}
+
+.transaction-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 500px;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.transaction-heading {
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.transaction-form .input-group {
+    margin-bottom: 20px;
+}
+
+.transaction-form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    font-size: 0.95em;
+}
+
+.transaction-form input,
+.transaction-form select {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.2);       
+    color: #000;
+    font-size: 0.95em;
+    box-sizing: border-box;
+}
+
+.transaction-form input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.transaction-button {
+    background-color: #5D99ED;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.transaction-button:hover {
+    background-color: #4A7FCF;
+}
+
+.transaction-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.transaction-table th,
+.transaction-table td {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+.transaction-table th {
+    background-color: rgba(255, 255, 255, 0.15);
+    font-weight: bold;
+}
+
+
+
+
+
+
+/*chartlist*/
+body.chartlist {
+    font-family: 'Jost', sans-serif;
+    margin: 0;
+    background-image: 
+      radial-gradient(circle, rgba(255, 255, 255, 0.1) 3px, transparent 5px),
+      linear-gradient(360deg, #6F78CB 0%, #255492 58%, #235390 100%);
+    background-size: 
+      5.56vw 5.56vw, /* for dots */
+      cover;          /* for gradient */
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  
+  .chartlist-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 90%;
+    max-width: 1100px;
+    height: 80%;
+    max-height: 800px;
+    position: relative;
+    padding: 30px;
+  }
+  
+  .chartlist-heading {
+    font-size: 2vw;
+    font-weight: bold;
+    margin-top: 1vw;
+    margin-left: -10vw;
+    margin-bottom: 1vw;
+  }
+
+  .chartlist-subheading {
+    font-size: 1.4vw;
+    text-align: center;  
+    font-weight: 400;
+    text-align: left;
+    max-width: 80%;
+    line-height: 1.4;
+    margin: 40px auto 20px auto;
+    color: #ffffff;
+}
+
+  
+  .chartlist-text {
+    white-space: nowrap;
+    font-size: 1.4vw;
+  }
+  
+  .chartlist-button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: 0;
+    align-items: flex-end;
+    width: fit-content;
+  }
+  
+.chartlist-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 40px;
+    padding: 15px 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none;
+    font-weight: 500;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .chartlist-button:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: scale(1.05);
+  }
+  
+  .illustration-container {
+    position: absolute;
+    bottom: -200px;
+    left: -150px;
+  }
+  
+  .illustration {
+    width: 400px;
+    height: 400px;
+    max-width: 1000px; /* Match home illustration */
+    max-height: 1000px; /* Match home illustration */
+    opacity: 1;
+    
+  }
+  
+  .text-indigo-600 {
+    color: #ffffff;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-top: 45rem;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+  }
+  /*logout*/
+  body.logout-page {
+    font-family: 'Jost', sans-serif;
+    margin: 0;
+    background-image: 
+        radial-gradient(circle, rgba(255, 255, 255, 0.1) 3px, transparent 5px),
+        linear-gradient(360deg, #6F78CB 0%, #255492 58%, #235390 100%);
+    background-size: 
+        40px 40px,   /* size of dots */
+        cover;       /* size of gradient */
+    background-repeat: 
+        repeat,      /* repeat dots */
+        no-repeat;   /* don't repeat gradient */
+    background-position: 
+        center, 
+        center;
+    color: #FFF;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+
+.logout-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 500px;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.logout-heading {
+    font-size: 2em;
+    margin: 0;
+    text-align: center;
+}
+
+.logout-illustration {
+    max-width: 250px;
+    height: auto;
+}
+
+.logout-button-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.logout-button {
+    background-color: #5D99ED;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.logout-button:hover {
+    background-color: #4A7FCF;
+}
+
+
+/* === Custom Notifications Page Design === */
+/* === Notifications Page Styling === */
+
+body {
+    font-family: 'Jost', sans-serif;
+    margin: 0;
+    background-image: 
+      radial-gradient(circle, rgba(255, 255, 255, 0.1) 3px, transparent 5px),
+      linear-gradient(360deg, #6F78CB 0%, #255492 58%, #235390 100%);
+    background-size: 
+      5.56vw 5.56vw, /* for dots */
+      cover;          /* for gradient */
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.notifications-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 500px;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.page-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    color: #121213;
+    margin-bottom: 40px;
+    border-bottom: 2px solid #dee2e6;
+    padding-bottom: 10px;
+}
+
+.section {
+    margin-bottom: 40px;
+}
+
+.section h2 {
+    font-size: 24px;
+    color: #0d0d0d;
+    border-left: 5px solid #f7f9fb;
+    padding-left: 15px;
+    margin-bottom: 20px;
+}
+
+.notification-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.notification-item {
+    background-color: #6F78CB 0%, #255492 58%, #235390 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-left: 5px solid #007bff;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.no-notification {
+    color: #060671;
+    font-style: italic;
+}
+
+.section {
+    margin-top: 30px;
+}
+
+.section h2 {
+    color: #101010;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+

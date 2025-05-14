@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shonchoy</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body class="web-page">
+    <div class="particles"></div> 
+    <div class="container">
+        <a href="{% url 'homepage' %}" class="next-page-button">Next Page</a>
+        
+        <div class="logo-container">
+            <img src="{% static 'images/logo.svg' %}" alt="Shonchoy Logo" class="logo">
+            <div class="punchline">Empowering Your Financial Future</div>
+        </div>
+    </div>
+</body>
+</html>

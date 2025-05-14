@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Status</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="current-status-page">
+    <div class="status-container">
+        <h1>Current Account Status</h1>
+
+        <!-- Balance Section -->
+        <div class="row-layout">
+            <section class="balance-section">
+                <h2>Current Balance</h2>
+                <p class="amount">${{ balance }}</p>
+            </section>
+
+            <!-- Transaction History Section -->
+            <section class="transactions-section">
+                <h2>Transaction History</h2>
+                <table class="status-table">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for t in transactions %}
+                            <tr>
+                                <td>{{ t.transaction_type }}</td>
+                                <td>${{ t.amount }}</td>
+                                <td>{{ t.date }}</td>
+                            </tr>
+                        {% empty %}
+                            <tr><td colspan="3">No transactions yet.</td></tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </section>
+        </div>
+
+        <!-- Loans Section -->
+        <section class="loans-section">
+            <h2>My Loans</h2>
+            <ul class="status-list">
+                {% for entry in loan_data %}
+                    <li>
+                        <span>Type: {{ entry.loan.loan_type }} |</span>
+                        <span>Amount: ${{ entry.loan.amount }} |</span>
+                        <span>Paid: <span class="paid-amount">${{ entry.paid_amount }}</span> |</span>
+                        <span>Pending: <span class="due-amount">${{ entry.due_amount }}</span> |</span>
+                        <span>Duration: {{ entry.loan.duration_months }} months |</span>
+                        <span>Status: {% if entry.due_amount == 0 %}<strong>Paid</strong>{% else %}<strong>Ongoing</strong>{% endif %}</span>    
+                    </li>
+                {% empty %}
+                    <li>No loan applications yet.</li>
+                {% endfor %}
+            </ul>
+        </section>
+
+       

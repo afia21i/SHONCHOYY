@@ -1,0 +1,81 @@
+{% load static custom_filters %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Loans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="myloans-page">
+    <div class="main-wrapper">
+        <div class="loans-container">
+            <h1>My Loans</h1>
+        </div>
+
+        <div class="container">
+            <table class="loans-table">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Amount</th>
+                        <th>Duration</th>
+                        <th>Start Date</th>
+                        <th>Payment Info</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for loan, payments, total_paid, remaining_balance in loan_statuses %}
+                    <tr>
+                        <td>{{ loan.loan_type }}</td>
+                        <td>${{ loan.amount }}</td>
+                        <td>{{ loan.duration_months }} months</td>
+                        <td>{{ loan.start_date }}</td>
+                        <td>
+                            Paid: ${{ total_paid }} <br>
+                            Remaining: ${{ remaining_balance }}
+                        </td>
+                    </tr>
+
+                    {% if remaining_balance > 0 %}
+                    <tr>
+                        <td colspan="5">
+                            <div class="repay-form">
+                                <form method="POST" action="">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="loan_id" value="{{ loan.id }}">
+                                    <label for="repay-{{ loan.id }}">Repay Amount:</label>
+                                    <input id="repay-{{ loan.id }}" type="number" name="amount" min="1" max="{{ remaining_balance }}" step="0.01" required>
+                                    <button type="submit">Pay Loan</button>
+                                    <p class="due-info">Due: ${{ remaining_balance }}</p>
+                                </form>
+                            </div>
+
+                            {% if loan.installments > 1 %}
+                                <div class="installments-section">
+                                    <h4>Installment Plan: {{ loan.installments }} payments</h4>
+                                    <ul>
+                                        {% for i in loan.installments|times %}
+                                            <li>Installment {{ i }}: ${{ loan.amount|divisible:loan.installments }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            {% else %}
+                                <p>Single payment of ${{ loan.amount }}</p>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endif %}
+
+                    {% empty %}
+                    <tr>
+                        <td colspan="5">No loans found.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

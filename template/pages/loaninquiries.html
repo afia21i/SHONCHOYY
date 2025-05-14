@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loan Inquiries</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="transaction-page">
+
+<div class="transaction-container">
+    <h2 class="transaction-heading">Apply for a Loan</h2>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="message {{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <form method="post" class="transaction-form">
+        {% csrf_token %}
+        <div class="input-group">
+            <label for="loan_type">Loan Type</label>
+            <select name="loan_type" id="loan_type" required>
+                <option value="">-- Select Loan Type --</option>
+                <option value="PERSONAL">Personal Loan</option>
+                <option value="HOME">Home Loan</option>
+                <option value="EDUCATIONAL">Education Loan</option>
+                <option value="AGRICULTURE">Agriculture Loan</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label for="chart">Select from Chartlist</label>
+            <select name="chart" id="chart" required>
+                <option value="">-- Select --</option>
+                <option value="Rupak">Rupak</option>
+                <option value="Lily">Lily</option>
+                <option value="Asha">Asha</option>
+                <option value="Tulip">Tulip</option>
+            </select>
+        </div>
+        
+        <div class="input-group">
+            <label for="amount">Loan Amount</label>
+            <input type="number" name="amount" id="amount" step="0.01" min="0" placeholder="Enter loan amount" required>
+        </div>
+
+        <div class="input-group">
+            <label for="duration">Duration (in months)</label>
+            <input type="number" name="duration" id="duration" min="1" placeholder="e.g., 12" required>
+        </div>
+
+        <!-- Installment Plan Selection -->
+<div class="input-group">
+    <label for="installments">Installment Plan</label>
+    <select name="installments" id="installments" required>
+        <option value="1">None</option>
+        <option value="2">2 Installments</option>
+        <option value="3">3 Installments</option>
+    </select>
+</div>
+
+<div class="input-group">
+    <label>Per Installment Amount:</label>
+    <p id="installment-amount">$0.00</p>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const amountInput = document.getElementById('amount');
+        const installmentSelect = document.getElementById('installments');
+        const resultText = document.getElementById('installment-amount');
+
+        function updateInstallmentAmount() {
+            const total = parseFloat(amountInput.value);
+            const parts = parseInt(installmentSelect.value);
+            if (!isNaN(total) && parts > 0) {
+                const perInstallment = (total / parts).toFixed(2);
+                resultText.textContent = `$${perInstallment} x ${parts}`;
+            } else {
+                resultText.textContent = '$0.00';
+            }
+        }
+
+        amountInput.addEventListener('input', updateInstallmentAmount);
+        installmentSelect.addEventListener('change', updateInstallmentAmount);
+    });
+</script>
+
+
+        <button type="submit" class="transaction-button">Apply for Loan</button>
+    </form>
+
+</div>
+
+</body>
+</html>
